@@ -20,8 +20,15 @@ public class CategoryService {
 
     private final CategoryRepository repository;
 
-    public List<Category> getAllCategories() {
-        return repository.findAll();
+    public List<CategoryDTO> getAllCategories() {
+        List<Category> categories = repository.findAll();
+        List<CategoryDTO> response = new ArrayList<>();
+        for (Category category : categories) {
+            CategoryDTO dto = new CategoryDTO();
+            dto.setName(category.getName());
+            response.add(dto);
+        }
+        return response;
     }
 
     public Optional<Category> getCategoryById(Long id) {

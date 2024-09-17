@@ -32,12 +32,12 @@ public class CategoryControllerTest {
 
     @Test
     public void testGetCategories() {
-        Category category = new Category();
+        CategoryDTO category = new CategoryDTO();
         category.setName("Category");
 
         when(categoryService.getAllCategories()).thenReturn(Collections.singletonList(category));
 
-        List<Category> result = categoryController.getCategories();
+        List<CategoryDTO> result = categoryController.getCategories();
         assertEquals(1, result.size());
         assertEquals("Category", result.get(0).getName());
     }

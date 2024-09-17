@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Category;
+import com.example.demo.model.CategoryDTO;
 import com.example.demo.repository.CategoryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,7 +35,7 @@ public class CategoryServiceTest {
 
         when(categoryRepository.findAll()).thenReturn(Collections.singletonList(category));
 
-        List<Category> result = categoryService.getAllCategories();
+        List<CategoryDTO> result = categoryService.getAllCategories();
         assertEquals(1, result.size());
         assertEquals("Category", result.get(0).getName());
     }
